@@ -41,6 +41,24 @@ In the post-installation configuration wizard, follow the following steps:
 ![11  Setting Enterprise Permissions](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/76f6c036-4fa5-44f3-ba68-d22d167dda7e)
 ![12  Summary](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/e29c366b-f4ac-4309-b7c1-c3f3d5ab5c45)
 
-Now that the DHCP server feature has been added to Server Manager, there are two other tasks that needs to be done. First, on the Windows Server 2019 machine, I previously assigned a static IP address, but for this exercise, I want this system to have an IP address assigned from the DHCP server I just set up. Under the `Network and Sharing Center` in Control Panel, open up the system's network adapter properties page, and then open `Internet Protocol Version 4 (TCP/IPv4) Properties`.
+Now that the DHCP server feature has been added to Server Manager, there are two other tasks that needs to be done. First, on the Windows Server 2019 machine, I previously assigned a static IP address, but for this exercise, I want this system to have an IP address assigned from the DHCP server I just set up. Under the `Network and Sharing Center` in Control Panel, open up the system's network adapter properties page, and then open `Internet Protocol Version 4 (TCP/IPv4) Properties`. Under the IP address settings of this page, select `Obtain an IP address automatically`.
+
+![12-13](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/444303a5-7aff-456a-bd12-d3a3e16466e8)
+
+For the Windows 10 Enterprise system(s), ensure that the IP assignment is set to automatic. To check and/or to change that setting: 
+
+1. Open the `Settings` app
+2. Click on `Network & Internet`
+3. Click on `Ethernet` and click on the network your system is connected to
+4. Under IP settings, click on `Edit`
+5. Select `Automatic (DHCP)` and click `Save`
+
+![VirtualBoxVM_6dPOVVFR8l](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/af10eff9-6591-4564-a608-b676c2afae44)
+
+The next task at hand concerns with the virtual machine's settings. If you have any of the virtual machines open, close them and open up their settings page. In the settings page, click into the `Network` tab of the virtual machines. In the `Network` tab, change the network adapter to `Internal Network` because it does not have a built-in DHCP server. 
+
+
+
+
 
 
