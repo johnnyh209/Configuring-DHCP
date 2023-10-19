@@ -75,6 +75,7 @@ Use the following steps for the `New Scope Wizard`:
 5. **Configure DHCP Options:** Select yes to configure DHCP options
 6. **Router (Default Gateway):** When the DHCP assigns addresses, it also passes information regarding the default router and gateway to the system receiving the IP address as well. For now, we left this empty and moved to the next page.
 7. **Domain Name and DNS Servers:** Enter in the name of a domain that you want client systems to use for DNS name resolution. For us, we used our `redlotus.local` domain. Next, enter a server name. For us, it was `Server2019`. 
-
+8. **WINS Server:** Nothing needs to be done here. WINS will not be used.
+9. **Activate Scope:** Choose to activate the scope immediately, and click `Next` to activate the scope
 
 
