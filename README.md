@@ -19,7 +19,7 @@ Doing so opens the `Add Roles and Features Wizard`. Work your way through the wi
 4. **Server Roles:** Select `DHCP Server`
 5. **Features:** There is no need to select anything on this page. Simply click `Next`
 6. **DHCP Server:** Read the text and click `Next`
-7. **Confirmation:** Go through the summary of what you have configured and install the DHCP feature. 
+7. **Confirmation:** Go through the summary of what you have configured and install the DHCP feature
 
 ![2  Click Next](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/133725c4-a8c7-4d27-96ed-b4ff73e79cf2)
 ![3  Click next](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/0fcc4d46-a71f-491f-a0e5-8dc9e3f151e2)
@@ -34,4 +34,13 @@ Once the installation has finished, click on the blue text that says `Complete D
 In the post-installation configuration wizard, follow the following steps:
 
 1. **Description:** Read and click `Next`
-2. **Authorization:** Select `Use the following user's credentials` and in the text box, enter in the the user that you want to authorize the DHCP server. It is recommended that you use an admin's account. In my case, it would be REDLOTUS/Administrator.
+2. **Authorization:** Select `Use the following user's credentials` and in the text box, enter in the the user that you want to authorize the DHCP server. It is recommended that you use an admin's account. In my case, it would be REDLOTUS/Administrator
+3. **Summary:** Read through the summary page and close the wizard to complete
+
+![10  Click Next](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/65b424a9-096f-4fcc-9648-261d1c7c301d)
+![11  Setting Enterprise Permissions](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/76f6c036-4fa5-44f3-ba68-d22d167dda7e)
+![12  Summary](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/e29c366b-f4ac-4309-b7c1-c3f3d5ab5c45)
+
+Now that the DHCP server feature has been added to Server Manager, there are two other tasks that needs to be done. First, on the Windows Server 2019 machine, I previously assigned a static IP address, but for this exercise, I want this system to have an IP address assigned from the DHCP server I just set up. Under the `Network and Sharing Center` in Control Panel, open up the system's network adapter properties page, and then open `Internet Protocol Version 4 (TCP/IPv4) Properties`.
+
+
