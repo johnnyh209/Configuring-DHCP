@@ -68,14 +68,58 @@ With everything set, we can finally define our DHCP scope. A DHCP scope is a con
 Use the following steps for the `New Scope Wizard`:
 
 1. **Scope Name:** Enter a name for the scope and a description. In my case, the name I used was `REDLOTUS Main` and the description was `Main DHCP Server`
+   
+![14  Name Scope](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/35aa5006-e5ed-4a2e-9bba-bf8dc659e5a1)
+
 2. **IP Address Range:** Enter a start and end IP address for the range of IP addresses that will be used in your network. For me, I entered 192.168.0.51 as the starting address and 192.168.0.100 as the ending address. This means that only addresses from and including 
-192.168.0.51 to and including 192.168.0.100 are assignable in your network. Additionally, set the length at `24` and subnetmask to `255.255.255.0`
+`192.168.0.51` to and including `192.168.0.100` are assignable in your network. Additionally, set the length at `24` and subnetmask to `255.255.255.0`
+
+![15  IP Address Range V2](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/d681c157-8d8c-44f6-a56d-eca22a5faa1e)
+
 3. **Add Exclusions and Delay:** The addresses that you define here, which should be within the range defined in step 2, will not be assigned to systems by the DHCP server. The delay defines by how many milliseconds the server waits before offering an IP address. The offering here refers to the DORA process of assigning IP addresses (Discover, Offer, Request, Acknowledge). For the purpose of practice in this project, I have decided to add the address, `192.168.0.52` to be excluded
+
+![16  Add Exclusions and Delays](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/fb4736b9-ef8f-4265-8a7b-1fa7cf44d172)
+
 4. **Lease Duration:** This defines how long a system will use the IP address assigned before needing to return the IP address to the pool or to renew the lease. I have set the lease duration to `8 days`
+
+![17  Lease Duration](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/73382332-5969-42e3-8b86-5c989d28534a)
+
 5. **Configure DHCP Options:** Select yes to configure DHCP options
+
+![18  Configure DHCP OPtions](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/5afdc2c8-a24a-4289-8c00-6c9fa5f03c1f)
+
 6. **Router (Default Gateway):** When the DHCP assigns addresses, it also passes information regarding the default router and gateway to the system receiving the IP address as well. For now, we left this empty and moved to the next page.
+
+![19  Version 2](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/c15e13c3-dd8f-429f-8b14-2ae01304c9a5)
+
 7. **Domain Name and DNS Servers:** Enter in the name of a domain that you want client systems to use for DNS name resolution. For us, we used our `redlotus.local` domain. Next, enter a server name. For us, it was `Server2019`. 
+
+![20  Version 2](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/1a341b6a-09cb-48b0-83f2-3a5eee6335c8)
+
 8. **WINS Server:** Nothing needs to be done here. WINS will not be used.
+
+![21  WINS (skip)](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/f8e8a974-2336-4d05-b5f9-a45b068026cc)
+
 9. **Activate Scope:** Choose to activate the scope immediately, and click `Next` to activate the scope
 
+![22  Activate Scope](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/4be4c987-fa57-46ea-8a3a-f9eeda8d37d9)
 
+After activating the scope, clicking on the `IPv4` directory on the left column of the `DHCP` app should show the scope as active.
+
+![VirtualBoxVM_fM65EIZtxq](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/606db14a-41b8-4998-991b-4bf9e32ac8b3)
+
+Because we set the IP settings to obtain an IP address automatically on the Windows Server 2019 and Windows 10 Enterprise systems, they should have received an IP address from the DHCP server. To check: 
+
+1. Open `Control Panel`
+2. Set Control Panel to `Small Icons` or `Large Icons` if it's not in either of those state already
+3. Click on `Network and Sharing Center`
+4. Click on the Icon and blue text next to `Connections` to open up the `Status` window
+5. Click on `Details`
+
+On our Windows Server 2019 system, it has an IP address of `192.168.0.50`. This indicates that this system contains the DHCP server, and so we know that the DHCP server has been set up.
+
+![27  IP address on server2019](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/92319271-8223-4db3-9ac9-ab63f430a8fa)
+
+Following the same steps to check the IP address on our Windows 10 Enterprise system, we see that it has been assigned the IP address `192.168.0.51` which is within the range of the scope defined when setting up the DHCP server. Also notice that under `IPv4 DHCP Server` the address `192.168.0.50` is listed, which points to our Windows Server 2019. That tells us that the IP address of this system was assigned by the DHCP server we set up.
+
+![28  Jose IP](https://github.com/johnnyh209/Configuring-DHCP/assets/33064730/791cb10c-a8f9-4d12-ac93-1a0b0b0db954)
